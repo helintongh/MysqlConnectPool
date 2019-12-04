@@ -1,0 +1,2 @@
+# MysqlConnectPool
+ The connection pool generally includes the IP address, port number, user name and password and other performance parameters used for database connection, such as initial connection amount, maximum connection amount, maximum idle time, connection timeout time, etc. This project is based on the C ++ language implementation The connection pool mainly implements the common basic functions supported by all the above connection pools.
