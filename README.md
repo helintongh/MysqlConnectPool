@@ -20,9 +20,24 @@ maxSize了，而此时没有空闲的连接可供使用，那么此时应用从�
 
 # 功能和设计
 
-- ConnectionPool.cpp和ConnectionPool.h：连接池代码实现 
-- Connection.cpp和Connection.h：数据库操作代码、增删改查代码实现 
+- ConnectionPool.cpp和ConnectionPool.h：连接池代码实现 。
+- Connection.cpp和Connection.h：数据库操作代码、增删改查代码实现 。
+- main.cpp是测试代码实现了通过多线程同时对数据库进行插入操作然后返回插入所用的时间。
+- mysql.ini是配置文件从中获取数据库的ip,用户名等信息,可以让你快速使用。
+- 在Mysql中新建了一个数据库chat，在该数据库下新建了一个user表来测试线程池。
+- public.c中封装了一个LOG宏定义用来打印出错信息。
 
+注:由于
+```
++-------+-----------------------+------+-----+---------+----------------+
+| Field | Type                  | Null | Key | Default | Extra          |
++-------+-----------------------+------+-----+---------+----------------+
+| id    | int(11)               | NO   | PRI | NULL    | auto_increment |
+| name  | varchar(50)           | YES  |     | NULL    |                |
+| age   | int(11)               | YES  |     | NULL    |                |
+| sex   | enum('male','female') | YES  |     | NULL    |                |
++-------+-----------------------+------+-----+---------+----------------+
+```
 连接池主要包含了以下功能点： 
 1. 连接池只需要一个实例，所以ConnectionPool以单例模式进行设计 
 2. 从ConnectionPool中可以获取和MySQL的连接Connection 
