@@ -57,6 +57,5 @@ maxSize了，而此时没有空闲的连接可供使用，那么此时应用从�
 4. 把libmysql.dll动态链接库（Linux下后缀名是.so库）放在工程目录下
 
 Linux端的需要
-把libmysql.so添加到LD_LIBRARY_PATH动态库路径中。或者在gcc编译的时候
-`gcc main.c -I ./ -L ./ -l test -o app`
-注:-I后面的./是头文件，-L 后面的./是动态库路径,-l后面的test是动态库名称。
+把libmysql.so添加到LD_LIBRARY_PATH动态库路径中,还需要cmake。
+Linux端的适配代码放在ConnectionPool_Linux文件夹内。
